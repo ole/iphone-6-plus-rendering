@@ -10,16 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pixelGridView: PixelGridView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func selectRenderingMode(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: pixelGridView.renderingMode = .LogicalPixels
+        case 1: pixelGridView.renderingMode = .NativePixels
+        default: NSException(name: NSInternalInconsistencyException, reason: "Execution should never reach this point", userInfo: nil).raise()
+        }
     }
-
 
 }
 

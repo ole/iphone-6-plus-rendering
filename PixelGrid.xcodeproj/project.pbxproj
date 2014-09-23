@@ -13,6 +13,7 @@
 		5DC221FC19D1AB93006029BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC221FB19D1AB93006029BB /* Images.xcassets */; };
 		5DC221FF19D1AB93006029BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC221FD19D1AB93006029BB /* LaunchScreen.xib */; };
 		5DC2220B19D1AB93006029BB /* PixelGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2220A19D1AB93006029BB /* PixelGridTests.swift */; };
+		5DC2221519D1ABF4006029BB /* PixelGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2221419D1ABF4006029BB /* PixelGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		5DC2220419D1AB93006029BB /* PixelGridTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelGridTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC2220919D1AB93006029BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC2220A19D1AB93006029BB /* PixelGridTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelGridTests.swift; sourceTree = "<group>"; };
+		5DC2221419D1ABF4006029BB /* PixelGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				5DC221F419D1AB93006029BB /* AppDelegate.swift */,
 				5DC221F619D1AB93006029BB /* ViewController.swift */,
+				5DC2221419D1ABF4006029BB /* PixelGridView.swift */,
 				5DC221F819D1AB93006029BB /* Main.storyboard */,
 				5DC221FB19D1AB93006029BB /* Images.xcassets */,
 				5DC221FD19D1AB93006029BB /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC221F719D1AB93006029BB /* ViewController.swift in Sources */,
+				5DC2221519D1ABF4006029BB /* PixelGridView.swift in Sources */,
 				5DC221F519D1AB93006029BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
