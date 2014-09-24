@@ -16,6 +16,20 @@ enum RenderingMode {
 @IBDesignable
 class PixelGridView: UIView {
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentMode = .Redraw
+    }
+    
+    required init(coder decoder: NSCoder) {
+        super.init(coder: decoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentMode = .Redraw
+    }
+    
     let lineColor = UIColor.blackColor()
     var renderingMode: RenderingMode = RenderingMode.LogicalPixels {
         didSet {
