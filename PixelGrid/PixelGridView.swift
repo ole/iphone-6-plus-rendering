@@ -46,9 +46,20 @@ class PixelGridView: UIView {
 
         let path = UIBezierPath()
         
-        for i in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
-            path.moveToPoint(CGPoint(x: i + 0.5, y: CGRectGetMinY(pixelRect)))
-            path.addLineToPoint(CGPoint(x: i + 0.5, y: CGRectGetMaxY(pixelRect)))
+        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
+            let lineCenterX = x + 0.5
+            let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
+            let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
+            path.moveToPoint(startPoint)
+            path.addLineToPoint(endPoint)
+        }
+        
+        for y in stride(from: CGRectGetMinY(pixelRect), through: CGRectGetMaxY(pixelRect), by: 2) {
+            let lineCenterY = y + 0.5
+            let startPoint = CGPoint(x: CGRectGetMinX(pixelRect), y: lineCenterY)
+            let endPoint = CGPoint(x: CGRectGetMaxX(pixelRect), y: lineCenterY)
+            path.moveToPoint(startPoint)
+            path.addLineToPoint(endPoint)
         }
         
         lineColor.setStroke()
