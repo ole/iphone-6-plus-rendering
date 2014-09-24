@@ -16,7 +16,7 @@ enum RenderingMode {
 @IBDesignable
 class PixelGridView: UIView {
 
-    let lineColor = UIColor.redColor()
+    let lineColor = UIColor.blackColor()
     var renderingMode: RenderingMode = RenderingMode.LogicalPixels {
         didSet {
             setNeedsDisplay()
@@ -32,7 +32,7 @@ class PixelGridView: UIView {
 
         let path = UIBezierPath()
         
-        for i in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 50) {
+        for i in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
             path.moveToPoint(CGPoint(x: i + 0.5, y: CGRectGetMinY(pixelRect)))
             path.addLineToPoint(CGPoint(x: i + 0.5, y: CGRectGetMaxY(pixelRect)))
         }
