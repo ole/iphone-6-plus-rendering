@@ -8,14 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PixelGridViewDelegate {
 
     @IBOutlet weak var pixelGridView: PixelGridView!
+    @IBOutlet weak var scaleFactorLabel: UILabel!
+    @IBOutlet weak var boundsLabel: UILabel!
+    @IBOutlet weak var pixelRectLabel: UILabel!
+    @IBOutlet weak var lineWidthLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pixelGridView.delegate = self
+        updateUI()
     }
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     @IBAction func selectRenderingMode(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0: pixelGridView.renderingMode = .LogicalPixels
@@ -24,5 +34,15 @@ class ViewController: UIViewController {
         }
     }
 
+    func updateUI() {
+        self.scaleFactorLabel.text = "scaleFactor \(pixelGridView.renderScaleFactor)"
+        self.boundsLabel.text = "bounds: \(pixelGridView.bounds)"
+        self.pixelRectLabel.text = "pixelRect: \(pixelGridView.pixelRect)"
+        self.lineWidthLabel.text = "lineWidth: \(pixelGridView.lineWidth)"
+    }
+
+    func pixelGridViewDidRedraw(view: PixelGridView) {
+        updateUI()
+    }
 }
 

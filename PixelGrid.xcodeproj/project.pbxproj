@@ -411,6 +411,7 @@
 				5DC2221019D1AB93006029BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DC2221119D1AB93006029BB /* Build configuration list for PBXNativeTarget "PixelGridTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				5DC2221319D1AB93006029BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

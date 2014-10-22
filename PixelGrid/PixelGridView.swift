@@ -13,8 +13,14 @@ enum RenderingMode {
     case NativePixels
 }
 
+@objc protocol PixelGridViewDelegate: NSObjectProtocol {
+    func pixelGridViewDidRedraw(view: PixelGridView)
+}
+
 @IBDesignable
 class PixelGridView: UIView {
+
+    @IBOutlet weak var delegate: PixelGridViewDelegate? = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,19 +37,40 @@ class PixelGridView: UIView {
     }
     
     let lineColor = UIColor.blackColor()
+    
     var renderingMode: RenderingMode = RenderingMode.LogicalPixels {
         didSet {
             setNeedsDisplay()
         }
     }
+
+    var renderScaleFactor: CGFloat {
+        if renderingMode == .NativePixels {
+            return window?.screen.nativeScale ?? contentScaleFactor
+        } else {
+            return contentScaleFactor
+        }
+    }
+
+    var pixelRect: CGRect {
+        let pixelRect = CGRectApplyAffineTransform(self.bounds, upscaleTransform)
+        return pixelRect
+    }
+    
+    var upscaleTransform: CGAffineTransform {
+        let scaleFactor = renderScaleFactor
+        return CGAffineTransformMakeScale(scaleFactor, scaleFactor)
+    }
+    
+    var downscaleTransform: CGAffineTransform {
+        return CGAffineTransformInvert(upscaleTransform)
+    }
+    
+    var lineWidth: CGFloat {
+        return 1.0 / renderScaleFactor
+    }
     
     override func drawRect(rect: CGRect) {
-        
-        let scaleFactor = renderScaleFactor
-        let upscaleTransform = CGAffineTransformMakeScale(scaleFactor, scaleFactor)
-        let downscaleTransform = CGAffineTransformInvert(upscaleTransform)
-        let pixelRect = CGRectApplyAffineTransform(self.bounds, upscaleTransform)
-
         let path = UIBezierPath()
         
         for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
@@ -62,24 +89,12 @@ class PixelGridView: UIView {
             path.addLineToPoint(endPoint)
         }
         
-        lineColor.setStroke()
-
-        let lineWidth = 1.0 / scaleFactor
         path.lineWidth = lineWidth
         path.applyTransform(downscaleTransform)
+
+        lineColor.setStroke()
         path.stroke()
 
-        println("bounds: \(bounds)")
-        println("pixelRect: \(pixelRect)")
-        println("lineWidth: \(lineWidth)")
+        delegate?.pixelGridViewDidRedraw(self)
     }
-
-    var renderScaleFactor: CGFloat {
-        if renderingMode == .NativePixels {
-            return window?.screen.nativeScale ?? contentScaleFactor
-        } else {
-            return contentScaleFactor
-            }
-    }
-    
 }
