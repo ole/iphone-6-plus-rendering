@@ -73,21 +73,39 @@ class PixelGridView: UIView {
     override func drawRect(rect: CGRect) {
         let path = UIBezierPath()
         
-        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
-            let lineCenterX = x + 0.5
+        var step: CGFloat = 2.0
+        var i = 0
+        
+        var x = CGRectGetMinX(pixelRect)
+        while x <= CGRectGetMaxX(pixelRect) {
+            let lineCenterX = x + lineOrigin
             let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
             let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
             path.moveToPoint(startPoint)
             path.addLineToPoint(endPoint)
+            
+            ++i
+            if (i % 30 == 0) {
+                step *= 2
+            }
+            x += step
         }
         
-        for y in stride(from: CGRectGetMinY(pixelRect), through: CGRectGetMaxY(pixelRect), by: 2) {
-            let lineCenterY = y + 0.5
-            let startPoint = CGPoint(x: CGRectGetMinX(pixelRect), y: lineCenterY)
-            let endPoint = CGPoint(x: CGRectGetMaxX(pixelRect), y: lineCenterY)
-            path.moveToPoint(startPoint)
-            path.addLineToPoint(endPoint)
-        }
+//        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
+//            let lineCenterX = x + 0.5
+//            let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
+//            let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
+//            path.moveToPoint(startPoint)
+//            path.addLineToPoint(endPoint)
+//        }
+//        
+//        for y in stride(from: CGRectGetMinY(pixelRect), through: CGRectGetMaxY(pixelRect), by: 2) {
+//            let lineCenterY = y + 0.5
+//            let startPoint = CGPoint(x: CGRectGetMinX(pixelRect), y: lineCenterY)
+//            let endPoint = CGPoint(x: CGRectGetMaxX(pixelRect), y: lineCenterY)
+//            path.moveToPoint(startPoint)
+//            path.addLineToPoint(endPoint)
+//        }
         
         path.lineWidth = lineWidth
         path.applyTransform(downscaleTransform)
