@@ -36,7 +36,13 @@ class PixelGridView: UIView {
         contentMode = .Redraw
     }
     
-    let lineColor = UIColor.blackColor()
+    let lineColor = UIColor.greenColor()
+
+    var lineOrigin: CGFloat = 0.5 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     var renderingMode: RenderingMode = RenderingMode.LogicalPixels {
         didSet {
@@ -66,8 +72,10 @@ class PixelGridView: UIView {
         return CGAffineTransformInvert(upscaleTransform)
     }
     
-    var lineWidth: CGFloat {
-        return 1.0 / renderScaleFactor
+    var lineWidth: CGFloat = 0.5 {
+        didSet {
+            setNeedsDisplay()
+        }
     }
     
     override func drawRect(rect: CGRect) {
