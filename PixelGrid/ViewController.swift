@@ -71,5 +71,10 @@ class ViewController: UIViewController, PixelGridViewDelegate {
     @IBAction func lineOriginSliderChanged(sender: AnyObject) {
         pixelGridView.lineOrigin = CGFloat(lineOriginSlider.value)
     }
+
+    @IBAction func renderToImage(sender: AnyObject) {
+        let image = pixelGridView.renderToImage()
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
 }
 

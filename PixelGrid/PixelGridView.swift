@@ -78,7 +78,21 @@ class PixelGridView: UIView {
         }
     }
     
-    override func drawRect(rect: CGRect) {
+    func renderToImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(pixelRect.size, true, 1.0)
+        
+        let path = pixelGridPath()
+        path.lineWidth = 1.0
+        lineColor.setStroke()
+        path.stroke()
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+    
+    func pixelGridPath() -> UIBezierPath {
         let path = UIBezierPath()
         
         var step: CGFloat = 2.0
@@ -99,21 +113,27 @@ class PixelGridView: UIView {
             x += step
         }
         
-//        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
-//            let lineCenterX = x + 0.5
-//            let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
-//            let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
-//            path.moveToPoint(startPoint)
-//            path.addLineToPoint(endPoint)
-//        }
-//        
-//        for y in stride(from: CGRectGetMinY(pixelRect), through: CGRectGetMaxY(pixelRect), by: 2) {
-//            let lineCenterY = y + 0.5
-//            let startPoint = CGPoint(x: CGRectGetMinX(pixelRect), y: lineCenterY)
-//            let endPoint = CGPoint(x: CGRectGetMaxX(pixelRect), y: lineCenterY)
-//            path.moveToPoint(startPoint)
-//            path.addLineToPoint(endPoint)
-//        }
+        //        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
+        //            let lineCenterX = x + 0.5
+        //            let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
+        //            let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
+        //            path.moveToPoint(startPoint)
+        //            path.addLineToPoint(endPoint)
+        //        }
+        //
+        //        for y in stride(from: CGRectGetMinY(pixelRect), through: CGRectGetMaxY(pixelRect), by: 2) {
+        //            let lineCenterY = y + 0.5
+        //            let startPoint = CGPoint(x: CGRectGetMinX(pixelRect), y: lineCenterY)
+        //            let endPoint = CGPoint(x: CGRectGetMaxX(pixelRect), y: lineCenterY)
+        //            path.moveToPoint(startPoint)
+        //            path.addLineToPoint(endPoint)
+        //        }
+        
+        return path
+    }
+    
+    override func drawRect(rect: CGRect) {
+        let path = pixelGridPath()
         
         path.lineWidth = lineWidth
         path.applyTransform(downscaleTransform)
