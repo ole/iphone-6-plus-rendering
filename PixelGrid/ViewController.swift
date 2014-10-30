@@ -17,7 +17,7 @@ class ViewController: UIViewController, PixelGridViewDelegate {
     @IBOutlet weak var pixelRectLabel: UILabel!
     @IBOutlet weak var lineWidthLabel: UILabel!
     @IBOutlet weak var lineOffsetLabel: UILabel!
-    @IBOutlet weak var lineOriginSlider: UISlider!
+    @IBOutlet weak var lineOffsetSlider: UISlider!
     @IBOutlet weak var lineWidthSlider: UISlider!
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class ViewController: UIViewController, PixelGridViewDelegate {
         self.boundsLabel.text = "bounds: \(pixelGridView.bounds)"
         self.pixelRectLabel.text = "pixelRect: \(pixelGridView.pixelRect)"
         self.lineWidthLabel.text = "lineWidth: \(pixelGridView.lineWidth)"
-        self.lineOffsetLabel.text = "lineOffset: \(pixelGridView.lineOrigin)"
+        self.lineOffsetLabel.text = "lineOffset: \(pixelGridView.lineOffset)"
     }
 
     func pixelGridViewDidRedraw(view: PixelGridView) {
@@ -63,13 +63,13 @@ class ViewController: UIViewController, PixelGridViewDelegate {
     }
     
     @IBAction func resetLineOffset(sender: AnyObject) {
-        let lineOrigin = 0.5
-        pixelGridView.lineOrigin = CGFloat(lineOrigin)
-        lineOriginSlider.value = Float(lineOrigin)
+        let lineOffset = 0.5
+        pixelGridView.lineOffset = CGFloat(lineOffset)
+        lineOffsetSlider.value = Float(lineOffset)
     }
     
-    @IBAction func lineOriginSliderChanged(sender: AnyObject) {
-        pixelGridView.lineOrigin = CGFloat(lineOriginSlider.value)
+    @IBAction func lineOffsetSliderChanged(sender: AnyObject) {
+        pixelGridView.lineOffset = CGFloat(lineOffsetSlider.value)
     }
 
     @IBAction func renderToImage(sender: AnyObject) {

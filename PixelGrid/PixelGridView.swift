@@ -38,7 +38,7 @@ class PixelGridView: UIView {
     
     let lineColor = UIColor.greenColor()
 
-    var lineOrigin: CGFloat = 0.5 {
+    var lineOffset: CGFloat = 0.5 {
         didSet {
             setNeedsDisplay()
         }
@@ -100,7 +100,7 @@ class PixelGridView: UIView {
         
         var x = CGRectGetMinX(pixelRect)
         while x <= CGRectGetMaxX(pixelRect) {
-            let lineCenterX = x + lineOrigin
+            let lineCenterX = x + lineOffset
             let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
             let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
             path.moveToPoint(startPoint)
