@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AssetsLibrary
 import Swift
 
 class ViewController: UIViewController, PixelGridViewDelegate {
@@ -41,11 +42,11 @@ class ViewController: UIViewController, PixelGridViewDelegate {
     }
 
     func updateUI() {
-        self.scaleFactorLabel.text = "scaleFactor \(pixelGridView.renderScaleFactor)"
-        self.boundsLabel.text = "bounds: \(pixelGridView.bounds)"
-        self.pixelRectLabel.text = "pixelRect: \(pixelGridView.pixelRect)"
-        self.lineWidthLabel.text = "lineWidth: \(pixelGridView.lineWidth)"
-        self.lineOffsetLabel.text = "lineOffset: \(pixelGridView.lineOffset)"
+        scaleFactorLabel.text = "scaleFactor \(pixelGridView.renderScaleFactor)"
+        boundsLabel.text = "bounds: \(pixelGridView.bounds)"
+        pixelRectLabel.text = "pixelRect: \(pixelGridView.pixelRect)"
+        lineWidthLabel.text = "lineWidth: \(pixelGridView.lineWidth)"
+        lineOffsetLabel.text = "lineOffset: \(pixelGridView.lineOffset)"
     }
 
     func pixelGridViewDidRedraw(view: PixelGridView) {
@@ -74,7 +75,15 @@ class ViewController: UIViewController, PixelGridViewDelegate {
 
     @IBAction func renderToImage(sender: AnyObject) {
         let image = pixelGridView.renderToImage()
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        let assetsLibrary = ALAssetsLibrary()
+        assetsLibrary.writeImageDataToSavedPhotosAlbum(UIImagePNGRepresentation(image), metadata: nil) { (url, error) -> Void in
+            if let error = error {
+                println("Error saving image: \(error)")
+            } else {
+                println("Image URL: \(url)")
+            }
+        }
     }
 }
 

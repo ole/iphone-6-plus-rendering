@@ -79,13 +79,12 @@ class PixelGridView: UIView {
     }
     
     func renderToImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(pixelRect.size, true, 1.0)
-        
         let path = pixelGridPath()
         path.lineWidth = 1.0
+
+        UIGraphicsBeginImageContextWithOptions(pixelRect.size, true, 1.0)
         lineColor.setStroke()
         path.stroke()
-
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
