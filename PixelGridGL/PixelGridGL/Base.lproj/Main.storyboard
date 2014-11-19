@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yaY-iE-O5Y">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="zC9-ha-Mxk">
+            <objects>
+                <viewController id="yaY-iE-O5Y" customClass="RootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qxZ-K2-e0g"/>
+                        <viewControllerLayoutGuide type="bottom" id="kVW-L5-cOE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hWp-G5-aCC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-en-8ok">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="embed" id="gNp-5s-QYU"/>
+                                </connections>
+                            </containerView>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhH-hK-BAy" userLabel="Overlay View">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <subviews>
+                                    <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9V1-9H-R46">
+                                        <rect key="frame" x="-1" y="1" width="150" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha Overlay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-PA-onK">
+                                        <rect key="frame" x="23" y="65" width="104" height="20"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="4bm-dg-JKm"/>
+                                    <constraint firstAttribute="width" constant="150" id="7nX-7D-o4W"/>
+                                    <constraint firstAttribute="centerX" secondItem="9V1-9H-R46" secondAttribute="centerX" constant="0.5" id="Cjd-L5-YRC"/>
+                                    <constraint firstAttribute="centerX" secondItem="cTa-PA-onK" secondAttribute="centerX" id="Ei0-Or-Wnt"/>
+                                    <constraint firstAttribute="height" secondItem="9V1-9H-R46" secondAttribute="height" id="LP8-YA-Pkh"/>
+                                    <constraint firstAttribute="width" secondItem="9V1-9H-R46" secondAttribute="width" id="LgL-PD-Rs7"/>
+                                    <constraint firstAttribute="centerY" secondItem="cTa-PA-onK" secondAttribute="centerY" id="OXR-8p-nIw"/>
+                                    <constraint firstAttribute="centerY" secondItem="9V1-9H-R46" secondAttribute="centerY" constant="-0.5" id="WkS-8K-gtA"/>
+                                </constraints>
+                            </view>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfN-y0-2CH">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qLB-dg-qbw">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blur Overlay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZx-5p-Uk7">
+                                            <rect key="frame" x="28" y="65" width="91" height="20"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="pZx-5p-Uk7" secondAttribute="centerX" constant="0.75" id="0HU-KW-S0v"/>
+                                        <constraint firstAttribute="centerY" secondItem="pZx-5p-Uk7" secondAttribute="centerY" constant="-0.25" id="3WI-Aq-28l"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="7Hh-k4-ddu"/>
+                                    <constraint firstAttribute="height" constant="150" id="wol-XL-rqC"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmr-Yh-Jun">
+                                <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-qg-3vS">
+                                        <rect key="frame" x="152" y="9" width="296" height="29"/>
+                                        <segments>
+                                            <segment title="No Overlay"/>
+                                            <segment title="Alpha Overlay"/>
+                                            <segment title="Blur Overlay"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="overlaySelectionDidChange:" destination="yaY-iE-O5Y" eventType="valueChanged" id="gfe-GH-Sgp"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="W1g-qg-3vS" secondAttribute="centerX" id="31o-gd-nR5"/>
+                                    <constraint firstItem="W1g-qg-3vS" firstAttribute="top" secondItem="hmr-Yh-Jun" secondAttribute="top" constant="9" id="AXm-f1-tXw"/>
+                                    <constraint firstAttribute="bottom" secondItem="W1g-qg-3vS" secondAttribute="bottom" constant="8" id="Sgv-wW-JrE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6ns-en-8ok" firstAttribute="width" secondItem="hWp-G5-aCC" secondAttribute="width" id="3PW-Tg-TBZ"/>
+                            <constraint firstAttribute="centerX" secondItem="6ns-en-8ok" secondAttribute="centerX" id="9Rb-l9-2hC"/>
+                            <constraint firstAttribute="centerX" secondItem="IhH-hK-BAy" secondAttribute="centerX" id="ChO-bL-ev6"/>
+                            <constraint firstAttribute="centerY" secondItem="qfN-y0-2CH" secondAttribute="centerY" id="HHm-NR-pyT"/>
+                            <constraint firstItem="hmr-Yh-Jun" firstAttribute="leading" secondItem="hWp-G5-aCC" secondAttribute="leading" id="OcM-rf-Uqh"/>
+                            <constraint firstAttribute="centerY" secondItem="IhH-hK-BAy" secondAttribute="centerY" id="PF2-LC-gko"/>
+                            <constraint firstAttribute="centerY" secondItem="6ns-en-8ok" secondAttribute="centerY" id="TbS-Fd-OE8"/>
+                            <constraint firstItem="6ns-en-8ok" firstAttribute="height" secondItem="hWp-G5-aCC" secondAttribute="height" id="WHH-hI-nWl"/>
+                            <constraint firstItem="kVW-L5-cOE" firstAttribute="top" secondItem="hmr-Yh-Jun" secondAttribute="bottom" id="hHg-Nc-kA3"/>
+                            <constraint firstAttribute="centerX" secondItem="qfN-y0-2CH" secondAttribute="centerX" id="hge-Yg-XtH"/>
+                            <constraint firstAttribute="trailing" secondItem="hmr-Yh-Jun" secondAttribute="trailing" id="x2V-Tt-LxC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurOverlayView" destination="qfN-y0-2CH" id="fGe-N2-eZY"/>
+                        <outlet property="overlayView" destination="IhH-hK-BAy" id="hTM-Ox-ifS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TqW-A9-o6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="508"/>
+        </scene>
+        <!--OpenGL View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="OpenGLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
+                        <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1216" y="508"/>
+        </scene>
+    </scenes>
+</document>
