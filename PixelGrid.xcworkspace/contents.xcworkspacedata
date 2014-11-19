@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:PixelGridUIKit/PixelGrid.xcodeproj">
+      location = "group:PixelGridUIKit/PixelGridUIKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:PixelGridGL/PixelGridGL.xcodeproj">

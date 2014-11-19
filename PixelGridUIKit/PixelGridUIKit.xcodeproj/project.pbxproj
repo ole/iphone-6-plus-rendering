@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5DC221EF19D1AB93006029BB /* PixelGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DC221EF19D1AB93006029BB /* PixelGridUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelGridUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC221F319D1AB93006029BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC221F419D1AB93006029BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DC221F619D1AB93006029BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		5DC221E619D1AB93006029BB = {
 			isa = PBXGroup;
 			children = (
-				5DC221F119D1AB93006029BB /* PixelGrid */,
+				5DC221F119D1AB93006029BB /* PixelGridUIKit */,
 				5DC221F019D1AB93006029BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		5DC221F019D1AB93006029BB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5DC221EF19D1AB93006029BB /* PixelGrid.app */,
+				5DC221EF19D1AB93006029BB /* PixelGridUIKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5DC221F119D1AB93006029BB /* PixelGrid */ = {
+		5DC221F119D1AB93006029BB /* PixelGridUIKit */ = {
 			isa = PBXGroup;
 			children = (
 				5DC221F419D1AB93006029BB /* AppDelegate.swift */,
@@ -64,7 +64,7 @@
 				5DC221FD19D1AB93006029BB /* LaunchScreen.xib */,
 				5DC221F219D1AB93006029BB /* Supporting Files */,
 			);
-			path = PixelGrid;
+			path = PixelGridUIKit;
 			sourceTree = "<group>";
 		};
 		5DC221F219D1AB93006029BB /* Supporting Files */ = {
@@ -78,9 +78,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5DC221EE19D1AB93006029BB /* PixelGrid */ = {
+		5DC221EE19D1AB93006029BB /* PixelGridUIKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5DC2220E19D1AB93006029BB /* Build configuration list for PBXNativeTarget "PixelGrid" */;
+			buildConfigurationList = 5DC2220E19D1AB93006029BB /* Build configuration list for PBXNativeTarget "PixelGridUIKit" */;
 			buildPhases = (
 				5DC221EB19D1AB93006029BB /* Sources */,
 				5DC221EC19D1AB93006029BB /* Frameworks */,
@@ -90,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = PixelGrid;
+			name = PixelGridUIKit;
 			productName = PixelGrid;
-			productReference = 5DC221EF19D1AB93006029BB /* PixelGrid.app */;
+			productReference = 5DC221EF19D1AB93006029BB /* PixelGridUIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5DC221EA19D1AB93006029BB /* Build configuration list for PBXProject "PixelGrid" */;
+			buildConfigurationList = 5DC221EA19D1AB93006029BB /* Build configuration list for PBXProject "PixelGridUIKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5DC221EE19D1AB93006029BB /* PixelGrid */,
+				5DC221EE19D1AB93006029BB /* PixelGridUIKit */,
 			);
 		};
 /* End PBXProject section */
@@ -256,9 +256,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PixelGrid/Info.plist;
+				INFOPLIST_FILE = PixelGridUIKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PixelGridUIKit;
 			};
 			name = Debug;
 		};
@@ -266,16 +266,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PixelGrid/Info.plist;
+				INFOPLIST_FILE = PixelGridUIKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PixelGridUIKit;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5DC221EA19D1AB93006029BB /* Build configuration list for PBXProject "PixelGrid" */ = {
+		5DC221EA19D1AB93006029BB /* Build configuration list for PBXProject "PixelGridUIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DC2220C19D1AB93006029BB /* Debug */,
@@ -284,7 +284,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DC2220E19D1AB93006029BB /* Build configuration list for PBXNativeTarget "PixelGrid" */ = {
+		5DC2220E19D1AB93006029BB /* Build configuration list for PBXNativeTarget "PixelGridUIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DC2220F19D1AB93006029BB /* Debug */,
