@@ -13,19 +13,8 @@
 		5D55D5EC19FA96B300E9EB4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D55D5EA19FA96B300E9EB4E /* Main.storyboard */; };
 		5D55D5EE19FA96B300E9EB4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D55D5ED19FA96B300E9EB4E /* Images.xcassets */; };
 		5D55D5F119FA96B300E9EB4E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D55D5EF19FA96B300E9EB4E /* LaunchScreen.xib */; };
-		5D55D5FD19FA96B400E9EB4E /* PixelGridGLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55D5FC19FA96B400E9EB4E /* PixelGridGLTests.m */; };
 		5D55D6081A02DBBB00E9EB4E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55D6071A02DBBB00E9EB4E /* RootViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5D55D5F719FA96B400E9EB4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5D55D5D119FA96B300E9EB4E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5D55D5D819FA96B300E9EB4E;
-			remoteInfo = PixelGridGL;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D55D5D919FA96B300E9EB4E /* PixelGridGL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelGridGL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,22 +27,12 @@
 		5D55D5EB19FA96B300E9EB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D55D5ED19FA96B300E9EB4E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5D55D5F019FA96B300E9EB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5D55D5F619FA96B400E9EB4E /* PixelGridGLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelGridGLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D55D5FB19FA96B400E9EB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D55D5FC19FA96B400E9EB4E /* PixelGridGLTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixelGridGLTests.m; sourceTree = "<group>"; };
 		5D55D6061A02DBBB00E9EB4E /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		5D55D6071A02DBBB00E9EB4E /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5D55D5D619FA96B300E9EB4E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D55D5F319FA96B400E9EB4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				5D55D5DB19FA96B300E9EB4E /* PixelGridGL */,
-				5D55D5F919FA96B400E9EB4E /* PixelGridGLTests */,
 				5D55D5DA19FA96B300E9EB4E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				5D55D5D919FA96B300E9EB4E /* PixelGridGL.app */,
-				5D55D5F619FA96B400E9EB4E /* PixelGridGLTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,23 +84,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5D55D5F919FA96B400E9EB4E /* PixelGridGLTests */ = {
-			isa = PBXGroup;
-			children = (
-				5D55D5FC19FA96B400E9EB4E /* PixelGridGLTests.m */,
-				5D55D5FA19FA96B400E9EB4E /* Supporting Files */,
-			);
-			path = PixelGridGLTests;
-			sourceTree = "<group>";
-		};
-		5D55D5FA19FA96B400E9EB4E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5D55D5FB19FA96B400E9EB4E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,24 +104,6 @@
 			productReference = 5D55D5D919FA96B300E9EB4E /* PixelGridGL.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5D55D5F519FA96B400E9EB4E /* PixelGridGLTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D55D60319FA96B400E9EB4E /* Build configuration list for PBXNativeTarget "PixelGridGLTests" */;
-			buildPhases = (
-				5D55D5F219FA96B400E9EB4E /* Sources */,
-				5D55D5F319FA96B400E9EB4E /* Frameworks */,
-				5D55D5F419FA96B400E9EB4E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5D55D5F819FA96B400E9EB4E /* PBXTargetDependency */,
-			);
-			name = PixelGridGLTests;
-			productName = PixelGridGLTests;
-			productReference = 5D55D5F619FA96B400E9EB4E /* PixelGridGLTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,10 +115,6 @@
 				TargetAttributes = {
 					5D55D5D819FA96B300E9EB4E = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					5D55D5F519FA96B400E9EB4E = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 5D55D5D819FA96B300E9EB4E;
 					};
 				};
 			};
@@ -194,7 +132,6 @@
 			projectRoot = "";
 			targets = (
 				5D55D5D819FA96B300E9EB4E /* PixelGridGL */,
-				5D55D5F519FA96B400E9EB4E /* PixelGridGLTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,13 +144,6 @@
 				5D55D5F119FA96B300E9EB4E /* LaunchScreen.xib in Resources */,
 				5D55D5EC19FA96B300E9EB4E /* Main.storyboard in Resources */,
 				5D55D5EE19FA96B300E9EB4E /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D55D5F419FA96B400E9EB4E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,23 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D55D5F219FA96B400E9EB4E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5D55D5FD19FA96B400E9EB4E /* PixelGridGLTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5D55D5F819FA96B400E9EB4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5D55D5D819FA96B300E9EB4E /* PixelGridGL */;
-			targetProxy = 5D55D5F719FA96B400E9EB4E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5D55D5EA19FA96B300E9EB4E /* Main.storyboard */ = {
@@ -367,40 +281,6 @@
 			};
 			name = Release;
 		};
-		5D55D60419FA96B400E9EB4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PixelGridGLTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixelGridGL.app/PixelGridGL";
-			};
-			name = Debug;
-		};
-		5D55D60519FA96B400E9EB4E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PixelGridGLTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixelGridGL.app/PixelGridGL";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,15 +298,6 @@
 			buildConfigurations = (
 				5D55D60119FA96B400E9EB4E /* Debug */,
 				5D55D60219FA96B400E9EB4E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5D55D60319FA96B400E9EB4E /* Build configuration list for PBXNativeTarget "PixelGridGLTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5D55D60419FA96B400E9EB4E /* Debug */,
-				5D55D60519FA96B400E9EB4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
