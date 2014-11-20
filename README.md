@@ -2,6 +2,8 @@
 
 Quick and dirty test apps to understand how the built-in downsampling to screen resolution on the iPhone 6 Plus works.
 
+Check out the blog post: [Understanding the iPhone 6 Plus Screen](http://oleb.net/blog/2014/11/iphone-6-plus-screen/)
+
 By [Ole Begemann](http://oleb.net), November 2014.
 
 # Usage
