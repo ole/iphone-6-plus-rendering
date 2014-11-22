@@ -53,9 +53,9 @@ class ViewController: UIViewController, PixelGridViewDelegate {
         let assetsLibrary = ALAssetsLibrary()
         assetsLibrary.writeImageDataToSavedPhotosAlbum(UIImagePNGRepresentation(image), metadata: nil) { (url, error) -> Void in
             if let error = error {
-                println("Error saving image: \(error)")
-            } else {
-                println("Image URL: \(url)")
+                let alert = UIAlertController(title: "Save Error", message: error.localizedDescription, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Close", style: .Default, handler: { (action) -> Void in self.dismissViewControllerAnimated(true, completion: nil) }))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }
