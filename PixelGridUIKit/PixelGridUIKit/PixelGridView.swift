@@ -31,18 +31,7 @@ class PixelGridView: UIView {
         super.init(coder: decoder)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentMode = .Redraw
-    }
-    
     let lineColor = UIColor.greenColor()
-
-    var lineOffset: CGFloat = 0.5 {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
     
     var renderingMode: RenderingMode = RenderingMode.LogicalPixels {
         didSet {
@@ -58,6 +47,10 @@ class PixelGridView: UIView {
         }
     }
 
+    var lineWidth: CGFloat {
+        return 1.0/renderScaleFactor
+    }
+
     var pixelRect: CGRect {
         let pixelRect = CGRectApplyAffineTransform(self.bounds, upscaleTransform)
         return pixelRect
@@ -70,12 +63,6 @@ class PixelGridView: UIView {
     
     var downscaleTransform: CGAffineTransform {
         return CGAffineTransformInvert(upscaleTransform)
-    }
-    
-    var lineWidth: CGFloat = 0.5 {
-        didSet {
-            setNeedsDisplay()
-        }
     }
     
     func renderToImage() -> UIImage {
@@ -93,6 +80,8 @@ class PixelGridView: UIView {
     
     func pixelGridPath() -> UIBezierPath {
         let path = UIBezierPath()
+        
+        let lineOffset: CGFloat = 0.5
         
         var step: CGFloat = 2.0
         var i = 0
