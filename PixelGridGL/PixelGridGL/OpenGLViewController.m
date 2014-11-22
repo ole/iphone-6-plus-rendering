@@ -116,25 +116,25 @@ void addVertex(GLfloat x, GLfloat y, GLfloat z)
 //    addVertex(1, 1, 0);
 
     // Hairline grid
-    for (int i = 3; i < 1920; i = i + 2) {
-        addVertex(i, 1, 0);
-        addVertex(i, 1920, 0);
-    }
+//    for (int i = 3; i < 1920; i = i + 2) {
+//        addVertex(i, 1, 0);
+//        addVertex(i, 1920, 0);
+//    }
 
     // Variable-width grid
-//    CGFloat step = 2.0;
-//    NSInteger i = 0;
-//    float x = 1.0;
-//    while (x <= 1080) {
-//        addVertex(x, 1, 0);
-//        addVertex(x, 1920, 0);
-//        
-//        ++i;
-//        if (i % 30 == 0) {
-//            step *= 2;
-//        }
-//        x += step;
-//    }
+    CGFloat step = 2.0;
+    NSInteger i = 0;
+    float x = 1.0;
+    while (x <= 1080) {
+        addVertex(x, 1, 0);
+        addVertex(x, 1920, 0);
+        
+        ++i;
+        if (i % 30 == 0) {
+            step *= 2;
+        }
+        x += step;
+    }
 
     glGenVertexArraysOES(1, &_vertexArray);
     glBindVertexArrayOES(_vertexArray);
