@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D17FA8A3-7C93-42E3-B2D3-1765B0BE6F21</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PixelGrid</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C8AFE9CA16BF06B10739518FD253217E00E96142</key>
+		<string>github.com:ole/iphone-6-plus-rendering.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PixelGrid.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C8AFE9CA16BF06B10739518FD253217E00E96142</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:ole/iphone-6-plus-rendering.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C8AFE9CA16BF06B10739518FD253217E00E96142</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C8AFE9CA16BF06B10739518FD253217E00E96142</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Code</string>
+		</dict>
+	</array>
+</dict>
+</plist>
