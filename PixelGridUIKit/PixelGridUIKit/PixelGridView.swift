@@ -13,6 +13,11 @@ enum RenderingMode {
     case NativePixels  // Try to render to "hardware" pixel resolution (i.e. with screen.nativeScale on the iPhone 6 Plus)
 }
 
+enum GridVariant {
+    case VariableSpacing
+    case TightSpacing
+}
+
 @objc protocol PixelGridViewDelegate: NSObjectProtocol {
     func pixelGridViewDidRedraw(view: PixelGridView)
 }
@@ -33,12 +38,18 @@ class PixelGridView: UIView {
     
     let lineColor = UIColor.greenColor()
     
-    var renderingMode: RenderingMode = RenderingMode.LogicalPixels {
+    var renderingMode: RenderingMode = .LogicalPixels {
         didSet {
             setNeedsDisplay()
         }
     }
 
+    var gridVariant: GridVariant = .VariableSpacing {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     var renderScaleFactor: CGFloat {
         if renderingMode == .NativePixels {
             return window?.screen.nativeScale ?? contentScaleFactor
@@ -91,16 +102,18 @@ class PixelGridView: UIView {
     // Before drawing, the path returned by this method gets scaled down to the view's coordinate system
     // with downscaleTransform.
     func pixelGridPath() -> UIBezierPath {
-        let path = UIBezierPath()
-        
+        let path = gridVariant == .VariableSpacing ? variableSpacingGrid() : tightSpacingGrid()
+        return path
+    }
+    
+    // Grid option 1: a grid of vertical lines with varying spacing
+    func variableSpacingGrid() -> UIBezierPath {
+        var path = UIBezierPath()
         let lineOffset: CGFloat = 0.5
         
         var step: CGFloat = 2.0
         var i = 0
-
-        // Comment out one of these options for the actual drawing:
         
-        // Option 1: draw a grid of vertical lines with varying spacing
         var x = CGRectGetMinX(pixelRect)
         while x <= CGRectGetMaxX(pixelRect) {
             let lineCenterX = x + lineOffset
@@ -115,26 +128,21 @@ class PixelGridView: UIView {
             }
             x += step
         }
-        // End option 1
-        
-        // Option 2: draw a grid of vertical lines with 1-pixel spacing in between
-//        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
-//            let lineCenterX = x + lineOffset
-//            let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
-//            let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
-//            path.moveToPoint(startPoint)
-//            path.addLineToPoint(endPoint)
-//        }
-//
-//        for y in stride(from: CGRectGetMinY(pixelRect), through: CGRectGetMaxY(pixelRect), by: 2) {
-//            let lineCenterY = y + lineOffset
-//            let startPoint = CGPoint(x: CGRectGetMinX(pixelRect), y: lineCenterY)
-//            let endPoint = CGPoint(x: CGRectGetMaxX(pixelRect), y: lineCenterY)
-//            path.moveToPoint(startPoint)
-//            path.addLineToPoint(endPoint)
-//        }
-        // End option 2
-        
+        return path
+    }
+    
+    // Grid option 2: a grid of vertical lines with 1-pixel spacing in between
+    func tightSpacingGrid() -> UIBezierPath {
+        var path = UIBezierPath()
+        let lineOffset: CGFloat = 0.5
+
+        for x in stride(from: CGRectGetMinX(pixelRect), through: CGRectGetMaxX(pixelRect), by: 2) {
+            let lineCenterX = x + lineOffset
+            let startPoint = CGPoint(x: lineCenterX, y: CGRectGetMinY(pixelRect))
+            let endPoint = CGPoint(x: lineCenterX, y: CGRectGetMaxY(pixelRect))
+            path.moveToPoint(startPoint)
+            path.addLineToPoint(endPoint)
+        }
         return path
     }
     

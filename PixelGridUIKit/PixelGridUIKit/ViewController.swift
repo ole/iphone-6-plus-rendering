@@ -36,6 +36,14 @@ class ViewController: UIViewController, PixelGridViewDelegate {
         }
     }
 
+    @IBAction func selectGridVariant(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: pixelGridView.gridVariant = .VariableSpacing
+        case 1: pixelGridView.gridVariant = .TightSpacing
+        default: NSException(name: NSInternalInconsistencyException, reason: "Execution should never reach this point", userInfo: nil).raise()
+        }
+    }
+    
     func updateUI() {
         scaleFactorLabel.text = "scaleFactor \(pixelGridView.renderScaleFactor)"
         boundsLabel.text = "bounds: \(pixelGridView.bounds)"

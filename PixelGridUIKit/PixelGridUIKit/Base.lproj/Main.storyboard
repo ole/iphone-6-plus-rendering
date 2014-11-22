@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="444" width="600" height="156"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9cf-kz-XO6">
-                                        <rect key="frame" x="203" y="108" width="195" height="29"/>
+                                        <rect key="frame" x="8" y="108" width="195" height="29"/>
                                         <segments>
                                             <segment title="Logical Pixels"/>
                                             <segment title="Native Pixels"/>
@@ -68,18 +68,30 @@
                                             <action selector="renderToImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfv-Ge-B22"/>
                                         </connections>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cH4-T3-u8K">
+                                        <rect key="frame" x="489" y="108" width="103" height="29"/>
+                                        <segments>
+                                            <segment title="Grid 1"/>
+                                            <segment title="Grid 2"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="selectGridVariant:" destination="BYZ-38-t0r" eventType="valueChanged" id="77M-Cp-UO3"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="2JH-Jp-aCA" firstAttribute="centerY" secondItem="eq9-kX-sHL" secondAttribute="centerY" constant="0.5" id="6Af-29-m1x"/>
-                                    <constraint firstAttribute="centerX" secondItem="9cf-kz-XO6" secondAttribute="centerX" id="8g3-CK-MKi"/>
+                                    <constraint firstItem="cH4-T3-u8K" firstAttribute="centerY" secondItem="9cf-kz-XO6" secondAttribute="centerY" id="DE3-Fo-0et"/>
                                     <constraint firstItem="eq9-kX-sHL" firstAttribute="top" secondItem="Ac8-p7-SF5" secondAttribute="top" constant="8" id="DUy-Gp-Q7b"/>
                                     <constraint firstAttribute="trailing" secondItem="2JH-Jp-aCA" secondAttribute="trailing" constant="8" id="MEF-DC-tWV"/>
                                     <constraint firstAttribute="bottom" secondItem="9cf-kz-XO6" secondAttribute="bottom" constant="20" symbolic="YES" id="QXv-hM-iCk"/>
                                     <constraint firstItem="N7c-i4-NJQ" firstAttribute="leading" secondItem="xj1-q9-l9K" secondAttribute="leading" id="RtJ-yo-meW"/>
                                     <constraint firstItem="xj1-q9-l9K" firstAttribute="leading" secondItem="Q9Y-CS-Zu3" secondAttribute="leading" id="Vus-Pf-Hgm"/>
+                                    <constraint firstItem="N7c-i4-NJQ" firstAttribute="leading" secondItem="9cf-kz-XO6" secondAttribute="leading" id="b6c-DZ-2dh"/>
                                     <constraint firstItem="9cf-kz-XO6" firstAttribute="top" secondItem="N7c-i4-NJQ" secondAttribute="bottom" constant="8" symbolic="YES" id="fIt-F3-yMg"/>
                                     <constraint firstItem="Q9Y-CS-Zu3" firstAttribute="top" secondItem="eq9-kX-sHL" secondAttribute="bottom" constant="8" symbolic="YES" id="iKt-FY-rBu"/>
+                                    <constraint firstItem="cH4-T3-u8K" firstAttribute="trailing" secondItem="2JH-Jp-aCA" secondAttribute="trailing" id="jeA-xX-hWB"/>
                                     <constraint firstItem="xj1-q9-l9K" firstAttribute="top" secondItem="Q9Y-CS-Zu3" secondAttribute="bottom" constant="8" symbolic="YES" id="ntt-5J-dwF"/>
                                     <constraint firstItem="N7c-i4-NJQ" firstAttribute="top" secondItem="xj1-q9-l9K" secondAttribute="bottom" constant="8" symbolic="YES" id="q5r-Lb-yEG"/>
                                     <constraint firstItem="eq9-kX-sHL" firstAttribute="leading" secondItem="Ac8-p7-SF5" secondAttribute="leading" constant="8" id="rNX-eT-tWo"/>
