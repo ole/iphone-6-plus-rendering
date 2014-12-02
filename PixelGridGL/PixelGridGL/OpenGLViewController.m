@@ -105,15 +105,6 @@ void addVertex(GLfloat x, GLfloat y, GLfloat z)
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.useConstantColor = GL_TRUE;
     
-    // Vertices for bounding box rectangle
-//    addVertex(1, 1, 0);
-//    addVertex(1080, 1, 0);
-//    addVertex(1080, 1, 0);
-//    addVertex(1080, 1920, 0);
-//    addVertex(1080, 1920, 0);
-//    addVertex(1, 1920, 0);
-//    addVertex(1, 1920, 0);
-//    addVertex(1, 1, 0);
 
     // Hairline grid
 //    for (int i = 3; i < 1920; i = i + 2) {
