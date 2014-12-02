@@ -104,35 +104,13 @@ void addVertex(GLfloat x, GLfloat y, GLfloat z)
     
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.useConstantColor = GL_TRUE;
+  
+    // Create the vertices for the grid that should be drawn
+    // Only one of the grids should be active
+    // Comment one of these calls out
+//    [self setupHairlineGrid];
+    [self setupVariableWidthGrid];
     
-    CGRect boundsInPixels = CGRectApplyAffineTransform(self.view.bounds, CGAffineTransformMakeScale(self.view.contentScaleFactor, self.view.contentScaleFactor));
-    GLfloat minX = CGRectGetMinX(boundsInPixels);
-    GLfloat maxX = CGRectGetMaxX(boundsInPixels);
-    GLfloat minY = CGRectGetMinY(boundsInPixels);
-    GLfloat maxY = CGRectGetMaxY(boundsInPixels);
-    NSLog(@"boundsInPixels: %@", NSStringFromCGRect(boundsInPixels));
-
-    // Hairline grid
-//    for (GLfloat i = minX; i < maxX; i += 2) {
-//        addVertex(i, minY, 0.0);
-//        addVertex(i, maxY, 0.0);
-//    }
-
-    // Variable-width grid
-    GLfloat step = 2.0;
-    GLfloat x = 1.0;
-    NSInteger i = 0;
-    while (x <= maxX) {
-        addVertex(x, minY, 0);
-        addVertex(x, maxY, 0);
-        
-        ++i;
-        if (i % 30 == 0) {
-            step *= 2;
-        }
-        x += step;
-    }
-
     glGenVertexArraysOES(1, &_vertexArray);
     glBindVertexArrayOES(_vertexArray);
     
@@ -148,6 +126,41 @@ void addVertex(GLfloat x, GLfloat y, GLfloat z)
     assert(glGetError() == GL_NO_ERROR);
 }
 
+- (void)setupHairlineGrid
+{
+    CGRect boundsInPixels = CGRectApplyAffineTransform(self.view.bounds, CGAffineTransformMakeScale(self.view.contentScaleFactor, self.view.contentScaleFactor));
+    GLfloat minX = CGRectGetMinX(boundsInPixels);
+    GLfloat maxX = CGRectGetMaxX(boundsInPixels);
+    GLfloat minY = CGRectGetMinY(boundsInPixels);
+    GLfloat maxY = CGRectGetMaxY(boundsInPixels);
+    
+    for (GLfloat i = minX; i < maxX; i += 2) {
+        addVertex(i, minY, 0.0);
+        addVertex(i, maxY, 0.0);
+    }
+}
+
+- (void)setupVariableWidthGrid
+{
+    CGRect boundsInPixels = CGRectApplyAffineTransform(self.view.bounds, CGAffineTransformMakeScale(self.view.contentScaleFactor, self.view.contentScaleFactor));
+    GLfloat maxX = CGRectGetMaxX(boundsInPixels);
+    GLfloat minY = CGRectGetMinY(boundsInPixels);
+    GLfloat maxY = CGRectGetMaxY(boundsInPixels);
+    
+    GLfloat step = 2.0;
+    GLfloat x = 1.0;
+    NSInteger i = 0;
+    while (x <= maxX) {
+        addVertex(x, minY, 0);
+        addVertex(x, maxY, 0);
+        
+        ++i;
+        if (i % 30 == 0) {
+            step *= 2;
+        }
+        x += step;
+    }
+}
 
 - (void)tearDownGL
 {
