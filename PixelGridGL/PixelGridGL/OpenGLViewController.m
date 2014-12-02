@@ -105,20 +105,26 @@ void addVertex(GLfloat x, GLfloat y, GLfloat z)
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.useConstantColor = GL_TRUE;
     
+    CGRect boundsInPixels = CGRectApplyAffineTransform(self.view.bounds, CGAffineTransformMakeScale(self.view.contentScaleFactor, self.view.contentScaleFactor));
+    GLfloat minX = CGRectGetMinX(boundsInPixels);
+    GLfloat maxX = CGRectGetMaxX(boundsInPixels);
+    GLfloat minY = CGRectGetMinY(boundsInPixels);
+    GLfloat maxY = CGRectGetMaxY(boundsInPixels);
+    NSLog(@"boundsInPixels: %@", NSStringFromCGRect(boundsInPixels));
 
     // Hairline grid
-//    for (int i = 3; i < 1920; i = i + 2) {
-//        addVertex(i, 1, 0);
-//        addVertex(i, 1920, 0);
+//    for (GLfloat i = minX; i < maxX; i += 2) {
+//        addVertex(i, minY, 0.0);
+//        addVertex(i, maxY, 0.0);
 //    }
 
     // Variable-width grid
-    CGFloat step = 2.0;
+    GLfloat step = 2.0;
+    GLfloat x = 1.0;
     NSInteger i = 0;
-    float x = 1.0;
-    while (x <= 1080) {
-        addVertex(x, 1, 0);
-        addVertex(x, 1920, 0);
+    while (x <= maxX) {
+        addVertex(x, minY, 0);
+        addVertex(x, maxY, 0);
         
         ++i;
         if (i % 30 == 0) {
