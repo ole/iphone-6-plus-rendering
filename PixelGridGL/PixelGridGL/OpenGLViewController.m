@@ -129,23 +129,23 @@ void addVertex(GLfloat x, GLfloat y, GLfloat z)
 - (void)setupHairlineGrid
 {
     CGRect boundsInPixels = CGRectApplyAffineTransform(self.view.bounds, CGAffineTransformMakeScale(self.view.contentScaleFactor, self.view.contentScaleFactor));
-    GLfloat minX = CGRectGetMinX(boundsInPixels);
-    GLfloat maxX = CGRectGetMaxX(boundsInPixels);
-    GLfloat minY = CGRectGetMinY(boundsInPixels);
-    GLfloat maxY = CGRectGetMaxY(boundsInPixels);
-    
+    GLfloat minX = fmin(CGRectGetMinX(boundsInPixels), CGRectGetMinY(boundsInPixels));
+    GLfloat maxX = fmax(CGRectGetMaxX(boundsInPixels), CGRectGetMaxY(boundsInPixels));
+    GLfloat minY = minX;
+    GLfloat maxY = maxX;
+
     for (GLfloat i = minX; i < maxX; i += 2) {
         addVertex(i, minY, 0.0);
         addVertex(i, maxY, 0.0);
     }
 }
-
 - (void)setupVariableWidthGrid
 {
     CGRect boundsInPixels = CGRectApplyAffineTransform(self.view.bounds, CGAffineTransformMakeScale(self.view.contentScaleFactor, self.view.contentScaleFactor));
-    GLfloat maxX = CGRectGetMaxX(boundsInPixels);
-    GLfloat minY = CGRectGetMinY(boundsInPixels);
-    GLfloat maxY = CGRectGetMaxY(boundsInPixels);
+    GLfloat maxX = fmax(CGRectGetMaxX(boundsInPixels), CGRectGetMaxY(boundsInPixels));
+    GLfloat minY = fmin(CGRectGetMinX(boundsInPixels), CGRectGetMinY(boundsInPixels));
+
+    GLfloat maxY = maxX;
     
     GLfloat step = 2.0;
     GLfloat x = 1.0;
